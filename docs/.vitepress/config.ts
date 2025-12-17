@@ -4,7 +4,7 @@ import { head, nav, sidebar } from './configs'
 
 export default defineConfig({
   outDir: '../dist',
-  base:'/',
+  base:'/blog/',
   lang: 'zh-CN',
   title: '小周',
   description: '前端知识体系',
