@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "deploy":"bash deploy.sh"
+  },
+  "devDependencies": {
+    "@femm/prettier": "^1.0.2",
+    "@mdit-vue/shared": "^0.12.0",
+    "sass": "^1.61.0",
+    "vitepress": "^1.0.0-alpha.65",
+    "vue": "^3.2.47"
+  },
+  "prettier": "@femm/prettier"
+}

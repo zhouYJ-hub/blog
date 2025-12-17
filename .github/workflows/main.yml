@@ -1,0 +1,43 @@
+# 发布项目到自己的服务器上的配置
+name: DeployServer
+# on 表示触发actions的条件
+on:
+    push:
+        branches: [main] #main分支在push的时候会触发
+    pull_request:
+        branches: [main] #main分支在PR的时候会触发
+ 
+jobs:
+    build:
+        runs-on: ubuntu-latest #nodejs执行的操作系统
+ 
+        steps:
+            - uses: actions/checkout@v3 #拉取你的最新代码
+            - name: Use Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "14.x"  # 指定你的node版本
+            # 安装依赖
+            - name: yarn install
+              run: yarn install
+            # 打包
+            - name: build
+              run: yarn run docs:build
+              
+            #部署到服务器
+            - name: Deploy to Staging My server
+              uses: easingthemes/ssh-deploy@v2.1.6
+              env:
+                #私钥
+                SSH_PRIVATE_KEY: ${{ secrets.MY_SERVER_PRIVATE_KEY }} #后面指定为该仓库配置的私钥
+                ARGS: "-rltgoDzvO"
+                # 源目录，编译后生成的文件目录
+                SOURCE: '/dist/'
+                #服务器公网地址
+                REMOTE_HOST: '47.108.95.38'
+                #服务器用户名-一般默认root
+                REMOTE_USER: 'root'
+                #服务器中，代码部署的位置
+                TARGET: '/www/client/daohang/'
+                #去除的文件
+                EXCLUDE: "/dist/, /node_modules/" 
