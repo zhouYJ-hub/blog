@@ -11,12 +11,12 @@ hero:
     alt: 小周
   actions:
     - text: 小周
-      link: http://114.55.125.148:9527/
+      link: /
     - text: 前端导航
       link: /nav/
       theme: alt
     - text: 访问我的GitHub
-      link: https://github.com/xxzhub
+      link: https://github.com/zhouYJ-hub
       theme: alt
 features:
   - icon: 📖

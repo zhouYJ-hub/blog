@@ -1,6 +1,7 @@
 import type { DefaultTheme } from 'vitepress'
 import TsRouter from "../router/TS"
 import ProjectRouter from "../router/project"
+import BrowserRouter from "../router/browser"
 export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/views/JS/': [
     {
@@ -11,5 +12,6 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     }
   ],
   '/views/TS/': TsRouter,
-  '/views/project/': ProjectRouter
+  '/views/project/': ProjectRouter,
+  '/views/browser/':BrowserRouter
 }
